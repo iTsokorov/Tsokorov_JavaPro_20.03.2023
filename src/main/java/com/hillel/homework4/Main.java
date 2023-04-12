@@ -3,10 +3,10 @@ package com.hillel.homework4;
 public class Main {
     public static void main(String[] args) {
 
-        Animals animal1 = new Animals("Horse");
+        Animal animal1 = new Animal("Horse");
         animal1.run(30);
         animal1.swim(100);
-        System.out.println(Animals.getAnimalCount());
+        System.out.println(Animal.getAnimalCount());
 
         Cat cat1 = new Cat("Marsel");
         cat1.run(250);

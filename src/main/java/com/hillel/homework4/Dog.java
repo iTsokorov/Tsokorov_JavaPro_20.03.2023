@@ -1,6 +1,6 @@
 package com.hillel.homework4;
 
-public class Dog extends Animals{
+public class Dog extends Animal {
     String name;
     private static int dogCounter = 0;
 

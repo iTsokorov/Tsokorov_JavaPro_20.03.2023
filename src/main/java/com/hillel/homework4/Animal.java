@@ -1,16 +1,16 @@
 package com.hillel.homework4;
 
 
-public class Animals {
+public class Animal {
     String type;
     private static int animalCounter = 0;
 
 
-    public Animals(String type) {
+    public Animal(String type) {
         this.type = type;
         animalCounter++;
     }
-    public Animals() {
+    public Animal() {
         animalCounter++;
     }
     public static int getAnimalCount() {
