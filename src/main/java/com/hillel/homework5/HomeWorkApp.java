@@ -2,8 +2,6 @@ package com.hillel.homework5;
 
 public class HomeWorkApp {
     public static void main(String[] args) {
-
-    printThreeWords();
     checkSumSign();
     printColor();
     compareNumbers();
