@@ -10,7 +10,7 @@ public abstract class Participant {
         return name;
     }
 
-    private String name;
+    private final String name;
 
     public abstract void run(int distance);
 
