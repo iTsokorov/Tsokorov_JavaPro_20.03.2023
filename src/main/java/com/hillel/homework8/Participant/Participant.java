@@ -1,9 +1,18 @@
 package com.hillel.homework8.Participant;
 
-public interface Participant {
-    String getName();
+public abstract class Participant {
 
-    void run();
+    protected Participant(String name) {
+        this.name = name;
+    }
 
-    void jump();
+    public String getName() {
+        return name;
+    }
+
+    private String name;
+
+    public abstract void run(int distance);
+
+    public abstract void jump(int height);
 }
