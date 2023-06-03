@@ -15,4 +15,14 @@ public class Robot extends Participant {
     public void jump(int height) {
         System.out.println("Robot " + getName() + "is jumping.");
     }
+
+    @Override
+    public int getMaxLength() {
+        return 3;
+    }
+
+    @Override
+    public int getMaxHeight() {
+        return 1;
+    }
 }

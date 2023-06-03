@@ -15,4 +15,6 @@ public abstract class Participant {
     public abstract void run(int distance);
 
     public abstract void jump(int height);
+    public abstract int getMaxLength();
+    public abstract int getMaxHeight();
 }
