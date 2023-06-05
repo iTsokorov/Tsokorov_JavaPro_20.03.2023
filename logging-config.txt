@@ -1,0 +1,4 @@
+FILE: ./logs/log.txt
+LEVEL: DEBUG
+FORMAT: [TIME] [LEVEL] [THREAD] - [MESSAGE]
+MAX-SIZE: 50

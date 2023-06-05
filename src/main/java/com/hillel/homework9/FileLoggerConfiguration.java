@@ -1,31 +1,38 @@
 package com.hillel.homework9;
 
+import java.io.File;
+
 public class FileLoggerConfiguration {
-    private String filePath;
-    private LoggingLevel currentLevel;
-    private byte maxSizeFile;
-    private String logFormat;
 
-    public FileLoggerConfiguration(String filePath, LoggingLevel currentLevel, byte maxSizeFile, String logFormat) {
-        this.filePath = filePath;
-        this.currentLevel = currentLevel;
+     private final File file;
+
+     private final long maxSizeFile;
+
+     private final String format;
+
+     private final LoggingLevel level;
+
+
+    public FileLoggerConfiguration(File file, long maxSizeFile, String format, LoggingLevel level) {
+        this.file = file;
         this.maxSizeFile = maxSizeFile;
-        this.logFormat = logFormat;
+        this.format = format;
+        this.level = level;
     }
 
-    public String getFilePath() {
-        return filePath;
+    public File getFile() {
+        return file;
     }
 
-    public LoggingLevel getCurrentLevel() {
-        return currentLevel;
-    }
-
-    public byte getMaxSizeFile() {
+    public long getMaxSizeFile() {
         return maxSizeFile;
     }
 
-    public String getLogFormat() {
-        return logFormat;
+    public String getFormat() {
+        return format;
+    }
+
+    public LoggingLevel getLevel() {
+        return level;
     }
 }

@@ -1,13 +1,9 @@
 package com.hillel.homework9;
 
-public class FileMaxSizeReachedException extends Exception {
-    private long currentSize;
-    private long maxSize;
-    private String filePath;
+import java.io.File;
 
-    public FileMaxSizeReachedException(long currentSize, long maxSize, String filePath) {
-        this.currentSize = currentSize;
-        this.maxSize = maxSize;
-        this.filePath = filePath;
+public class FileMaxSizeReachedException extends RuntimeException {
+    public FileMaxSizeReachedException(File logFile) {
+        super("Log file " + logFile + " max size reached.");
     }
 }
