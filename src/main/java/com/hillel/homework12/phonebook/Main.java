@@ -12,5 +12,7 @@ public class Main {
         phoneBook.add(record3);
         phoneBook.find("Angelina Joli");
         phoneBook.findAll("Steve Jobs");
+        phoneBook.find("Anastasia");
+        phoneBook.findAll("Anastasia");
     }
 }

@@ -16,25 +16,35 @@ public class PhoneBook {
 
     }
 
-    public void find(String name) {
+    public Record find(String name) {
         for (Record record : records) {
             if (record.getName().equals(name)) {
                 record.printRecord();
-                break;
+                return record;
+
             }
         }
+        System.out.println("This name wasn't found");
+        return null;
     }
 
-    public void findAll(String name) {
+    public List<Record> findAll(String name) {
+        List<Record> foundedRecord = new ArrayList<>();
         for (Record record : records) {
             if (record.getName().equals(name)) {
+                foundedRecord.add(record);
                 System.out.println("Record: " + "name = '" + record.getName() + '\'' + ", phoneNumber = '"
-                        + record.getPhoneNumber() +'\'');
+                        + record.getPhoneNumber() + '\'');
             }
         }
+        if (foundedRecord.isEmpty()) {
+            System.out.println("This name wasn't found");
+            return null;
+        }
+        return foundedRecord;
     }
-
 }
+
 
 
 
