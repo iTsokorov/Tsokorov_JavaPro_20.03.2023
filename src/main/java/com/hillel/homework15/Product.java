@@ -108,11 +108,6 @@ public class Product {
     public LocalDateTime getDateAdd() {
         return dateAdd;
     }
-
-    public int getId() {
-        return id;
-    }
-
     @Override
     public String toString() {
         return "Kind = " + kind +

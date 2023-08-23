@@ -71,11 +71,11 @@ public class Main {
         System.out.println("Result of calculateTotalPrice method: " + totalPrice);
 
         List<Product> products6 = new ArrayList<>();
-        products6.add(new Product("Apple", 50.0, true, LocalDateTime.of(2023, 8, 23, 21, 4)));
-        products6.add(new Product("Book", 10.0, true, LocalDateTime.of(2022, 8, 23, 21, 3)));
-        products6.add(new Product("Book", 22.0, true, LocalDateTime.of(2023, 8, 23, 21, 2)));
-        products6.add(new Product("Disc", 40.0, true, LocalDateTime.of(2023, 8, 23, 21, 1)));
-        products6.add(new Product("Disc", 333.0, true, LocalDateTime.now()));
+        products6.add(new Product("Apple", 50.0, true, LocalDateTime.of(2023, 8, 23, 21, 4), 123));
+        products6.add(new Product("Book", 10.0, true, LocalDateTime.of(2022, 8, 23, 21, 3), 125));
+        products6.add(new Product("Book", 22.0, true, LocalDateTime.of(2023, 8, 23, 21, 2),155));
+        products6.add(new Product("Disc", 40.0, true, LocalDateTime.of(2023, 8, 23, 21, 1),222));
+        products6.add(new Product("Disc", 333.0, true, LocalDateTime.now(),512));
 
         Map<String, List<Product>> groupedProducts = Product.groupedByKind(products6);
         System.out.println("Result of groupedByKind method:");
