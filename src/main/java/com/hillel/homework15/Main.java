@@ -1,79 +1,84 @@
 package com.hillel.homework15;
 
-import java.util.Arrays;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr = {8, 4, 3, 7, 10, 12, 2};
-        System.out.println("BEFORE:");
-        System.out.println(Arrays.toString(arr));
-        quickSort(arr, 0, arr.length - 1);
-        System.out.println("AFTER:");
-        System.out.println(Arrays.toString(arr));
+        List<Product> products1 = new ArrayList<>();
+        products1.add(new Product("Apple", 50.0));
+        products1.add(new Product("Book", 300.0));
+        products1.add(new Product("Book", 200.0));
+        products1.add(new Product("Magazine", 150.0));
+        products1.add(new Product("Disk", 400.0));
 
-        int[] array = {22, 44, 13, 57, 10, 12, 2};
-        System.out.println("BEFORE:");
-        System.out.println(Arrays.toString(array));
-        cocktailSort(array);
-        System.out.println("AFTER:");
-        System.out.println(Arrays.toString(array));
 
-    }
+        List<Product> productBook = Product.getBooks(products1);
 
-    public static void quickSort(int[] arr, int left, int right) {
-        if (left > right) {
-            return;
+        System.out.println("Result of getBook method:");
+        System.out.println(productBook);
+
+        List<Product> products2 = new ArrayList<>();
+        products2.add(new Product("Apple", 50.0, true));
+        products2.add(new Product("Book", 300.0, true));
+        products2.add(new Product("Book", 200.0,true));
+        products2.add(new Product("Magazine", 150.0, false));
+        products2.add(new Product("Disk", 400.0, false));
+
+        List<Product> productsBookWithDiscount = Product.getBooksWithDiscount(products2);
+
+        System.out.println("Result of getBookWithDiscount method:");
+        System.out.println(productsBookWithDiscount);
+
+        List<Product> products3 = new ArrayList<>();
+        products3.add(new Product("Apple", 50.0, true));
+        products3.add(new Product("Book", 300.0, true));
+        products3.add(new Product("Book", 200.0,true));
+        products3.add(new Product("Book", 150.0, false));
+        products3.add(new Product("Disk", 400.0, false));
+
+
+        System.out.println("Result of getCheapestProduct method:");
+        try {
+            Product cheapestBook = Product.getCheapestProduct(products3);
+            System.out.println(cheapestBook);
+        } catch (ProductNotFoundException e) {
+            System.out.println(e.getMessage());
         }
-        int pivot = partition(arr, left,right);
-        quickSort(arr, left, pivot - 1);
-        quickSort(arr, pivot + 1, right);
-    }
 
-    private static int partition(int[] arr, int left, int right) {
-        int pivot = arr[right];
-        int point = left - 1;
-        for (int i = left; i < right; i++) {
-            if (arr[i] < pivot) {
-                point++;
-                swap(point, i , arr);
-            }
-        }
-        swap(point + 1, right, arr);
-        return point + 1;
-    }
+        List<Product> products4 = new ArrayList<>();
+        products4.add(new Product("Apple", 50.0, true, LocalDateTime.of(2023, 8, 23, 21, 4)));
+        products4.add(new Product("Book", 150.0, true, LocalDateTime.of(2023, 8, 23, 21, 3)));
+        products4.add(new Product("Magazine", 400.0, true, LocalDateTime.of(2023, 8, 23, 21, 2)));
+        products4.add(new Product("Disc", 300.0, true, LocalDateTime.of(2023, 8, 23, 21, 1)));
+        products4.add(new Product("Disc", 333.0, true, LocalDateTime.now()));
 
-    private static void swap(int point, int i, int[] arr) {
-        int temp = arr[point];
-        arr[point] = arr[i];
-        arr[i] = temp;
-    }
+        List<Product> lastThreeProducts = Product.getLastThreeProducts(products4);
 
-    public static void cocktailSort(int[] arr) {
-        boolean swapped;
-        do {
-            swapped = false;
-            for (int i = 0; i < arr.length - 1; i++) {
-                if (arr[i] > arr[i + 1]){
-                    int temp = arr[i];
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = temp;
-                    swapped = true;
-                }
-            }
+        System.out.println("Result of getLastThreeProducts method:");
+        System.out.println(lastThreeProducts);
 
-            if (!swapped) {
-                break;
-            }
-            swapped = false;
+        List<Product> products5 = new ArrayList<>();
+        products5.add(new Product("Apple", 50.0, true, LocalDateTime.of(2023, 8, 23, 21, 4)));
+        products5.add(new Product("Book", 10.0, true, LocalDateTime.of(2022, 8, 23, 21, 3)));
+        products5.add(new Product("Book", 22.0, true, LocalDateTime.of(2023, 8, 23, 21, 2)));
+        products5.add(new Product("Book", 40.0, true, LocalDateTime.of(2023, 8, 23, 21, 1)));
+        products5.add(new Product("Book", 333.0, true, LocalDateTime.now()));
 
-            for (int i = arr.length - 2; i >= 0; i--) {
-                if (arr[i] > arr[i + 1]) {
-                    int temp = arr[i];
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = temp;
-                    swapped = true;
-                }
-            }
-        } while (swapped);
+        double totalPrice = Product.calculateTotalPrice(products5);
+        System.out.println("Result of calculateTotalPrice method: " + totalPrice);
+
+        List<Product> products6 = new ArrayList<>();
+        products6.add(new Product("Apple", 50.0, true, LocalDateTime.of(2023, 8, 23, 21, 4)));
+        products6.add(new Product("Book", 10.0, true, LocalDateTime.of(2022, 8, 23, 21, 3)));
+        products6.add(new Product("Book", 22.0, true, LocalDateTime.of(2023, 8, 23, 21, 2)));
+        products6.add(new Product("Disc", 40.0, true, LocalDateTime.of(2023, 8, 23, 21, 1)));
+        products6.add(new Product("Disc", 333.0, true, LocalDateTime.now()));
+
+        Map<String, List<Product>> groupedProducts = Product.groupedByKind(products6);
+        System.out.println("Result of groupedByKind method:");
+        System.out.println(groupedProducts);
     }
 }
